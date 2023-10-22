@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+                * {
+                box-sizing: border-box;
+                }
+
+                body {
+                margin: 0;
+                font-family: Arial;
+                }
+
+                /* The grid: Four equal columns that floats next to each other */
+                .column {
+                    opacity: 100;
+
+                float: left;
+                width: 25%;
+                padding: 10px;
+                }
+
+                /* Style the images inside the grid */
+                .column img {
+                opacity: 100;
+                background-color: black;
+                cursor: pointer; 
+                }
+
+                .column img:hover {
+                opacity: 0.6;
+                }
+
+                /* Clear floats after the columns */
+                .row-custom:after {
+                content: "";
+                display: table;
+                clear: both;
+                }
+
+                /* The expanding image container */
+                .container-custom {
+                    position: relative;
+                    /* display: none; */
+                }
+
+                .container-custom-vanilla {
+                    position: relative;
+                    display: none;
+                }
+
+                /* Expanding image text */
+                #imgtext {
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+                color: white;
+                font-size: 20px;
+                }
+
+                /* Closable button inside the expanded image */
+                .closebtn {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                color: white;
+                font-size: 35px;
+                cursor: pointer;
+                }
+
+
+
+                /* bootstrap image  */
+                @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+        body {
+            /* background: #048; */
+            /* background: -webkit-linear-gradient(left top, #027, #48a);
+            background: -moz-linear-gradient(bottom right, #027, #48a);
+            background: linear-gradient(to bottom right, #027, #48a); */
+            background-attachment: fixed;
+            color: #fff;
+            font-family: 'Raleway', Helvetica, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 140%;
+            margin: 0;
+            height: 100%;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+        }
+        .page_title {
+            font-weight: 300;
+            line-height: 120%;
+            margin: 20px 0;
+            text-shadow: 0 1px 5px rgba(0,0,0,.8);
+            text-transform: uppercase;
+        }
+
+        /* PEN STYLES ========== */
+        .row {
+            margin: 0;
+            padding: 10px
+        }
+        .container {
+        }
+
+        .test_box {
+            padding: 0;
+        }
+        .test_box .inner {
+            background: #333;
+            display: block;
+            margin: 10px;
+            overflow: hidden;
+        }
+        .test_box .inner .test_click {
+            -webkit-align-content: center;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background-color: rgba(0,0,0,.1);
+            color: #fff;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex-wrap: wrap;
+            height: 300px;
+            mix-blend-mode: normal;
+            text-align: center;
+            text-decoration: none;
+            -webkit-transition: all 300ms ease;
+            transition: all 300ms ease;
+        }
+        .test_box .inner .test_click:hover {
+            background-color: rgba(0,100,255,.5); 
+            mix-blend-mode: hard-light;
+        }
+        .flex_this {
+            -webkit-align-content: center;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            display: inherit;
+            flex-wrap: inherit;
+            height: auto;
+            margin: 0;
+            padding: 10px;
+            -webkit-transition: all 300ms ease;
+            transition: all 300ms ease;
+            width: 100%;
+
+        }
+        .test_box .inner .test_click:hover .flex_this {
+            margin-top: -5px;
+        }
+
+        .test_title {
+            display: block;
+            font-weight: 700;
+            margin: 0 0 20px;
+            width: 100%;
+        }
+        .test_link {
+            border: 2px solid #fff;
+            display: inline-block;
+            font-size: .8em;
+            font-weight: 700;
+            letter-spacing: .1em;
+            margin: 0 auto;
+            padding: 10px 30px;
+            text-transform: uppercase;
+        }
+
+        .box-01 .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/09/Corn-PNG.png');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-02 .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/09/CGM-png.png');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-03 .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/08/PBPM65-scaled.jpg');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-04 .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/08/DDGS-scaled.jpg');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-05 .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/08/PKM.jpg');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-06 .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/09/20230809_124706-1-scaled.jpg');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-konjac .inner {
+            background-image: url('https://inescoagro.com/wp-content/uploads/2023/10/Konjac-Chips-Sun-Dried-PNG.png');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .box-vanilla .inner {
+            background-image: url(' https://inescoagro.com/wp-content/uploads/2023/10/Vanilla-Planifolia.png');
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* detail rameez */
+        img{
+        /* position: fixed; */
+        top: -8%;
+        left: 0%;
+        border-radius: 50px;
+        opacity:0.9;
+        transition: 0.5s;
+
+    
+    }
+    h1{
+        transition: transform 2s;
+        font-size: 60px;
+    color: white;
+    font-family: 'Big Shoulders Display', cursive;
+    }
+    .card:hover > p{
+        opacity:1;
+        transform: scale(1.5);
+        top:80%;
+    
+    }
+    img:hover .card{
+            
+    
+    }
+    img, #parent {
+        cursor: pointer;
+        
+    }
+    .card:hover > img{
+        opacity:1;
+        transform: scale(1.4);
+                
+    }
+    .card header {
+        position:absolute;
+        top: 120%;
+        left: 0%;
+        padding: 1px;
+        border-radius:  25px;
+        width: 450px;
+        height: 90px;
+        transition: all .5s;
+        opacity:0;
+    }
+    .card:hover > header{
+        opacity:1;
+            width: 450px;
+            height: 90px;
+                transform: translateY(-120px);
+    }
+
+    .card {
+
+        transition: transform .7s;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        /* border-radius: 500px; */
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        background: white;
+        width: 450px;
+        height: 450px;
+    }
+    .card:hover{
+
+        transform: scale(1.08)
+    }
+    .centeri{ 
+        /* position: fixed;
+        top: 50%;
+        left: 50%; */
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+    }
+    /* span{
+        
+        position: relative;
+    } */
+        </style>
+    </head>
+<body>
+
+
+    <!-- The four columns -->
+   
+
+    <div class="container-custom">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+        <div id="imgtext"></div>
+        <div class="row" style="padding: 100px;">
+            <div class="row">
+                <div class="test_box box-01 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="https://inescoagro.com/feed-ingredient-products/corn" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Corn</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="test_box box-02 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="#" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Corn Gluten Meal</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="test_box box-03 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="#" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Poultry By Product Meal</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="test_box box-04 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="#" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Dried Distiller’s Grain Soluble</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="test_box box-05 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="https://inescoagro.com/feed-ingredient-products/palm-kernel-meal" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Palm Kernel Meal</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="test_box box-06 col-xs-6 col-md-4">
+                    <div class="inner">
+                        <a href="#" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Feather Meal</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="container-custom-vanilla">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+        <img id="expandedImgLandProduct" style="width:100%">
+        <div id="imgtext"></div>
+        <div class="row" style="padding: 100px;">
+            <div class="row">
+                <div class="test_box box-konjac col-xs-8 col-md-12">
+                    <div class="inner">
+                        <a href="#" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Konjac</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="test_box box-vanilla col-xs-8 col-md-12">
+                    <div class="inner">
+                        <a href="#" class="test_click">
+                            <div class="flex_this">
+                                <h3 class="test_title">Vanilla</h3>
+                                <span class="test_link">More</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <script>
+        
+        var expandImg = document.getElementById("expandedImg");
+        var expandImgLandProduct = document.getElementById("expandedImgLandProduct");
+
+        function myFunction(imgs) {
+            expandImg.parentElement.style.display = "block";
+            expandImgLandProduct.parentElement.style.display = "none"
+        }
+
+        function myFunctionLandProduct(imgs) {
+            expandImgLandProduct.parentElement.style.display = "block";
+            expandImg.parentElement.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
